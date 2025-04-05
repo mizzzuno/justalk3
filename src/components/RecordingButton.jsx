@@ -16,22 +16,24 @@ const RecordingButton = ({ onClick }) => {
     <IconButton
       onClick={handleClick}
       sx={{
-        width: 80,
-        height: 80,
+        width: 100,
+        height: 100,
         borderRadius: "50%",
-        border: "4px solid white",
+        border: "3px solid white",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         bgcolor: "transparent",
-        boxShadow: 3,
+        '&:hover': {
+          bgcolor: 'rgba(255, 255, 255, 0.1)',
+        },
       }}
     >
       <div
         style={{
-          width: isRecording ? "24px" : "50px",
-          height: isRecording ? "24px" : "50px",
-          backgroundColor: "red",
+          width: isRecording ? "30px" : "70px",
+          height: isRecording ? "30px" : "70px",
+          backgroundColor: "#ff4444",
           borderRadius: isRecording ? "5px" : "50%",
           transition: "all 0.3s ease-in-out",
         }}

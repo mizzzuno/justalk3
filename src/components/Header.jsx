@@ -1,23 +1,20 @@
-import { useState } from "react";
 import React from 'react'
 import IconButtons from './IconButton'
 import IconMenu from './IconMenu'
 import './../stylesheet/Header.css'
 
-
-const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+const Header = ({ menuOpen, setMenuOpen }) => {
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);
-      };
+    };
 
-  return (
-    <div>
-        <IconButtons onClick={toggleMenu} />
-          {menuOpen && <IconMenu />}
-          <h1>Justalk</h1>
-    </div>
-  )
+    return (
+        <div className="header-container">
+            <IconButtons onClick={toggleMenu} />
+            {menuOpen && <IconMenu onClose={toggleMenu} />}
+            <h1 className="title">JustTalk</h1>
+        </div>
+    );
 }
 
 export default Header;

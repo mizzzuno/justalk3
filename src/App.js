@@ -1,24 +1,38 @@
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import Header from "./components/Header";
-import BasicPie from "./components/PieChart";
-import RecordingButton from "./components/RecordingButton";
 import BorderContainer from "./components/BorderContainer";
 import Typography from "@mui/material/Typography";
+import AppRoutes from './routes/AppRoutes';
 import './stylesheet/Body.css'
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
 
   return (
-    <>
-      <body>
-        <BorderContainer>
-          <Typography variant="h6">
-            <Header />
-            <BasicPie />
-            <RecordingButton />
-          </Typography>
-        </BorderContainer>
-      </body>
-    </>
+    <div className="main-container">
+      <BorderContainer>
+        <Typography variant="h6">
+          <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          <AppRoutes />
+        </Typography>
+      </BorderContainer>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <div className="app-container">
+        <AppContent />
+      </div>
+    </Router>
   );
 };
 

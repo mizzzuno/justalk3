@@ -6,7 +6,7 @@ import DehazeIcon from '@mui/icons-material/Dehaze';
 export default function IconButtons({ onClick }) {
   return (
     <Stack direction="row" spacing={1}>
-      <IconButton aria-label="Dehaze" onClick={onClick}>
+      <IconButton aria-label="Dehaze" onClick={onClick} sx={{ color: 'white' }}>
         <DehazeIcon />
       </IconButton>
     </Stack>

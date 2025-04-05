@@ -1,59 +1,47 @@
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ChatIcon from '@mui/icons-material/Chat';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import CloseIcon from '@mui/icons-material/Close';
+import GroupIcon from '@mui/icons-material/Group';
 import { Link } from "react-router-dom";
+import './../stylesheet/Menu.css';
 
-
-export default function IconMenu() {
+export default function IconMenu({ onClose }) {
   return (
-    <Paper sx={{ width: 320, maxWidth: '100%' }} >
-      <MenuList>
-        <MenuItem>
-          <ListItemIcon>
-            <HomeIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>ホーム画面</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <PersonAddIcon  fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>メンバーを追加</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <BarChartIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>フィードバック</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ChatIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>文字起こし</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <RestartAltIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>リセット</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <CloseIcon fontSize="small" />
-          </ListItemIcon>
-          <ListItemText>閉じる</ListItemText>
-        </MenuItem>
-      </MenuList>
-    </Paper>
+    <div className="menu-container">
+      <div className="menu-content">
+        <Link to="/" className="menu-item" onClick={onClose}>
+          <HomeIcon style={{ marginRight: '10px' }} />
+          ホーム画面
+        </Link>
+        <Link to="/add-member" className="menu-item" onClick={onClose}>
+          <PersonAddIcon style={{ marginRight: '10px' }} />
+          メンバーを追加
+        </Link>
+        <Link to="/member-select" className="menu-item" onClick={onClose}>
+          <GroupIcon style={{ marginRight: '10px' }} />
+          メンバーを選択
+        </Link>
+        <Link to="/feedback" className="menu-item" onClick={onClose}>
+          <BarChartIcon style={{ marginRight: '10px' }} />
+          フィードバック
+        </Link>
+        <Link to="/talk-detail" className="menu-item" onClick={onClose}>
+          <ChatIcon style={{ marginRight: '10px' }} />
+          文字起こし
+        </Link>
+        <Link to="/reset" className="menu-item" onClick={onClose}>
+          <RestartAltIcon style={{ marginRight: '10px' }} />
+          リセット
+        </Link>
+        <div className="menu-item" onClick={onClose} style={{ cursor: 'pointer' }}>
+          <CloseIcon style={{ marginRight: '10px' }} />
+          閉じる
+        </div>
+      </div>
+    </div>
   );
 }
