@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import IconMenu from './../components/IconMenu';
-import './../stylesheet/MemberSelect.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import IconMenu from "./../components/IconMenu";
+import "./../stylesheet/MemberSelect.css";
 
 export default function MemberSelect() {
   const [users, setUsers] = useState([]);
@@ -18,20 +18,20 @@ export default function MemberSelect() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch('/api/users');
+      const response = await fetch("/api/users");
       const data = await response.json();
       setUsers(data);
       setIsLoading(false);
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error("Error fetching users:", error);
       setIsLoading(false);
     }
   };
 
   const toggleUserSelection = (userId) => {
-    setSelectedUsers(prev => {
+    setSelectedUsers((prev) => {
       if (prev.includes(userId)) {
-        return prev.filter(id => id !== userId);
+        return prev.filter((id) => id !== userId);
       } else {
         return [...prev, userId];
       }
@@ -39,7 +39,7 @@ export default function MemberSelect() {
   };
 
   const selectAllUsers = () => {
-    setSelectedUsers(users.map(user => user.id));
+    setSelectedUsers(users.map((user) => user.id));
   };
 
   const deselectAllUsers = () => {
@@ -49,7 +49,7 @@ export default function MemberSelect() {
   const proceedWithSelectedUsers = () => {
     if (selectedUsers.length > 0) {
       // 選択されたユーザーIDを次のページに渡す処理を実装
-      navigate('/next-page', { state: { selectedUsers } });
+      navigate("/next-page", { state: { selectedUsers } });
     }
   };
 
@@ -61,23 +61,20 @@ export default function MemberSelect() {
   const confirmDelete = async () => {
     try {
       await fetch(`/api/users/${userToDelete.id}`, {
-        method: 'DELETE',
+        method: "DELETE",
       });
-      setUsers(users.filter(user => user.id !== userToDelete.id));
-      setSelectedUsers(selectedUsers.filter(id => id !== userToDelete.id));
+      setUsers(users.filter((user) => user.id !== userToDelete.id));
+      setSelectedUsers(selectedUsers.filter((id) => id !== userToDelete.id));
       setShowDeleteModal(false);
       setUserToDelete(null);
     } catch (error) {
-      console.error('Error deleting user:', error);
+      console.error("Error deleting user:", error);
     }
   };
 
   return (
     <div className="container">
-      <button
-        className="menu-button"
-        onClick={() => setShowMenu(!showMenu)}
-      >
+      <button className="menu-button" onClick={() => setShowMenu(!showMenu)}>
         <i className="fas fa-bars"></i>
       </button>
 
@@ -101,11 +98,9 @@ export default function MemberSelect() {
             <p>メンバーリストを読み込み中...</p>
           </div>
         ) : users.length === 0 ? (
-          <div className="no-users">
-            登録されているメンバーはいません
-          </div>
+          <div className="no-users">登録されているメンバーはいません</div>
         ) : (
-          users.map(user => (
+          users.map((user) => (
             <div key={user.id} className="user-item">
               <input
                 type="checkbox"
@@ -114,9 +109,7 @@ export default function MemberSelect() {
                 onChange={() => toggleUserSelection(user.id)}
               />
               <label htmlFor={`user-${user.id}`}>
-                <div className="user-avatar">
-                  {user.name.charAt(0)}
-                </div>
+                <div className="user-avatar">{user.name.charAt(0)}</div>
                 {user.name}
               </label>
               <button
@@ -130,15 +123,11 @@ export default function MemberSelect() {
         )}
       </div>
 
-      <div className="selected-count">
-        選択中: {selectedUsers.length}人
-      </div>
+      <div className="selected-count">選択中: {selectedUsers.length}人</div>
 
       <div className="button-container">
         <Link to="/userregister">
-          <button className="secondary">
-            新規登録
-          </button>
+          <button className="secondary">新規登録</button>
         </Link>
         <button
           onClick={proceedWithSelectedUsers}
@@ -162,10 +151,7 @@ export default function MemberSelect() {
               >
                 キャンセル
               </button>
-              <button
-                className="modal-delete"
-                onClick={confirmDelete}
-              >
+              <button className="modal-delete" onClick={confirmDelete}>
                 削除
               </button>
             </div>
@@ -174,4 +160,4 @@ export default function MemberSelect() {
       )}
     </div>
   );
-} 
+}
