@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { IconButton } from "@mui/material";
+import './../stylesheet/Body.css'
 
 const RecordingButton = () => {
   const [isRecording, setIsRecording] = useState(false);
-
   const toggleRecording = () => {
     setIsRecording(!isRecording);
   };
@@ -22,7 +22,7 @@ const RecordingButton = () => {
         bgcolor: "transparent",
         boxShadow: 3,
       }}
-    >
+      >
       <div
         style={{
           width: isRecording ? "24px" : "50px",
@@ -32,7 +32,7 @@ const RecordingButton = () => {
           transition: "all 0.3s ease-in-out",
         }}
       />
-    </IconButton>
+      </IconButton>
   );
 };
 

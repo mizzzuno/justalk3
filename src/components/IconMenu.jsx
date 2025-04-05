@@ -10,6 +10,7 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import ChatIcon from '@mui/icons-material/Chat';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from "react-router-dom";
 
 
 export default function IconMenu() {
@@ -52,7 +53,6 @@ export default function IconMenu() {
           </ListItemIcon>
           <ListItemText>閉じる</ListItemText>
         </MenuItem>
-       
       </MenuList>
     </Paper>
   );
