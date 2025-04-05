@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { IconButton } from "@mui/material";
-import './../stylesheet/Body.css'
+import './../stylesheet/Body.css';
 
-const RecordingButton = () => {
+const RecordingButton = ({ onClick }) => {
   const [isRecording, setIsRecording] = useState(false);
-  const toggleRecording = () => {
-    setIsRecording(!isRecording);
+
+  const handleClick = () => {
+    setIsRecording((prev) => !prev); // 自分の録音状態もトグル
+    if (onClick) {
+      onClick(); // 親の関数も呼び出す
+    }
   };
 
   return (
     <IconButton
-      onClick={toggleRecording}
+      onClick={handleClick}
       sx={{
         width: 80,
         height: 80,
@@ -22,7 +26,7 @@ const RecordingButton = () => {
         bgcolor: "transparent",
         boxShadow: 3,
       }}
-      >
+    >
       <div
         style={{
           width: isRecording ? "24px" : "50px",
@@ -32,7 +36,7 @@ const RecordingButton = () => {
           transition: "all 0.3s ease-in-out",
         }}
       />
-      </IconButton>
+    </IconButton>
   );
 };
 
