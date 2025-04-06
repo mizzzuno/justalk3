@@ -126,7 +126,7 @@ export default function MemberSelect() {
       <div className="selected-count">選択中: {selectedUsers.length}人</div>
 
       <div className="button-container">
-        <Link to="/userregister">
+        <Link to="/add-member">
           <button className="secondary">新規登録</button>
         </Link>
         <button
