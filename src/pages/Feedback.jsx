@@ -12,42 +12,43 @@ const Feedback = () => {
   ];
 
   return (
-    <Box sx={{ p: 3, maxWidth: 800, margin: '0 auto' }}>
-      <Paper elevation={3} sx={{ p: 4, mt: 3, bgcolor: '#1a1a1a', borderRadius: 2 }}>
-        
-        
-        <Grid container spacing={4}>
+    <Box sx={{ p: 1, maxWidth: 500, margin: '0 auto' }}>
+      <Paper elevation={3} sx={{ p: 1.5, mt: 1.5, bgcolor: 'transparent', borderRadius: 2 }}>
+        <Grid container spacing={1}>
           {feedbackItems.map((item, index) => (
             <Grid item xs={12} key={index}>
-              <Box sx={{ 
-                display: 'flex', 
-                justifyContent: 'space-between', 
-                alignItems: 'center',
-                p: 2,
-                bgcolor: '#2a2a2a',
-                borderRadius: 1,
-                '&:hover': {
-                  bgcolor: '#333333',
-                  transition: 'background-color 0.3s'
-                }
-              }}>
-                <Typography variant="h6" sx={{ color: '#ffffff', fontWeight: 'medium' }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  p: 1,
+                  bgcolor: '#2a2a2a',
+                  borderRadius: 1,
+                  '&:hover': {
+                    bgcolor: '#333333',
+                    transition: 'background-color 0.3s',
+                  },
+                }}
+              >
+                <Typography variant="body1" sx={{ color: '#ffffff' }}>
                   {item.label}
                 </Typography>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <Rating 
-                    value={item.value} 
-                    readOnly 
-                    sx={{ 
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Rating
+                    value={item.value}
+                    readOnly
+                    size="small"
+                    sx={{
                       '& .MuiRating-iconFilled': {
-                        color: '#ffd700'
+                        color: '#ffd700',
                       },
                       '& .MuiRating-iconEmpty': {
-                        color: '#666666'
-                      }
-                    }} 
+                        color: '#666666',
+                      },
+                    }}
                   />
-                  <Typography variant="body1" sx={{ color: '#ffffff', fontWeight: 'bold', minWidth: '40px' }}>
+                  <Typography variant="body2" sx={{ color: '#ffffff', fontWeight: 'bold', minWidth: '36px' }}>
                     {item.value}/5
                   </Typography>
                 </Box>
