@@ -7,11 +7,13 @@ import Stack from "@mui/material/Stack";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import GroupsIcon from "@mui/icons-material/Groups";
 import RecordingButton from "../components/RecordingButton";
-import FormPropsTextFields from "../components/TextField";
+import BasicTextFields from "../components/TextField";
+import IconButtonSizes from "../components/AddMemberButton";
 
 const AddMember = () => {
   const navigate = useNavigate();
   const [members, setMembers] = useState([{ name: "" }]);
+  let add_count = 0;
 
   const handleAddMember = () => {
     setMembers([...members, { name: "" }]); // 空のメンバー追加
@@ -36,7 +38,7 @@ const AddMember = () => {
       sx={{
         maxWidth: 400,
         margin: "auto",
-        mt: 5,
+        mt: 3,
         p: 2,
         display: "flex",
         flexDirection: "column",
@@ -45,12 +47,12 @@ const AddMember = () => {
     >
       {/* 追加されたメンバーを表示するエリア */}
       <Box sx={{ width: "100%", mb: 3 }}>
-        <Stack spacing={1}>
+        <Stack spacing={0}>
           {members.length === 0 ? (
             <Typography
               variant="body2"
               textAlign="center"
-              sx={{ color: "grey.500" }}
+              sx={{ color: "white" }}
             >
               メンバーが追加されていません
             </Typography>
@@ -62,18 +64,28 @@ const AddMember = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  p: 2,
-                  bgcolor: "#2a3441",
+                  p: 0, // padding 0
+                  m: 0, // margin 0
+                  bgcolor: "#2a2a2a",
+                  color: "white",
                   borderRadius: "4px",
                 }}
               >
-                <FormPropsTextFields
-                  value={member.name}
-                  onChange={(e) =>
-                    handleMemberNameChange(index, e.target.value)
-                  }
-                />
-                <Box sx={{ transform: "scale(0.6)" }}>
+                <Box>
+                  <BasicTextFields
+                    value={member.name}
+                    onChange={(e) =>
+                      handleMemberNameChange(index, e.target.value)
+                    }
+                    sx={{ color: "white" }}
+                  />
+
+                  {index === members.length - 1 && (
+                    <IconButtonSizes onClick={handleAddMember} />
+                  )}
+                </Box>
+
+                <Box sx={{ transform: "scale(0.6)", color: "white" }}>
                   <RecordingButton
                     onClick={() => handleRecordClick(member.name)}
                   />
@@ -89,7 +101,7 @@ const AddMember = () => {
         <Button
           variant="contained"
           startIcon={<PersonAddIcon />}
-          onClick={handleAddMember}
+          onClick={handleShowSelection}
           fullWidth
           sx={{
             bgcolor: "#4caf50",
@@ -103,25 +115,6 @@ const AddMember = () => {
           }}
         >
           メンバーを追加
-        </Button>
-
-        <Button
-          variant="contained"
-          startIcon={<GroupsIcon />}
-          onClick={handleShowSelection}
-          fullWidth
-          sx={{
-            bgcolor: "#607d8b",
-            color: "white",
-            "&:hover": {
-              bgcolor: "#546e7a",
-            },
-            py: 1.5,
-            fontSize: "1rem",
-            textTransform: "none",
-          }}
-        >
-          メンバー選択画面を表示
         </Button>
       </Stack>
     </Box>

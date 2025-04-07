@@ -1,24 +1,35 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
-export default function FormPropsTextFields() {
+export default function BasicTextFields(props) {
   return (
-    <Box
-      component="form"
-      sx={{ "& .MuiTextField-root": { m: 1, width: "25ch" } }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
-        <TextField
-          id="filled-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          helperText="Some important text"
-          variant="filled"
-        />
-      </div>
-    </Box>
+    <TextField
+      {...props}
+      id="standard-basic"
+      label="名前を入力して"
+      variant="standard"
+      InputProps={{
+        sx: {
+          color: "white", // 入力文字の色
+          "&:before": {
+            borderBottom: "1px solid white", // 通常時の下線
+          },
+          "&:hover:not(.Mui-disabled):before": {
+            borderBottom: "2px solid white", // ホバー時の下線
+          },
+          "&:after": {
+            borderBottom: "2px solid white", // フォーカス時の下線
+          },
+        },
+      }}
+      InputLabelProps={{
+        sx: {
+          color: "white",
+          "&.Mui-focused": {
+            color: "white",
+          },
+        },
+      }}
+    />
   );
 }
