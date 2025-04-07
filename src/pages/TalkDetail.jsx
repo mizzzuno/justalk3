@@ -54,7 +54,7 @@ function TranscriptionErrorUI() {
           alignItems: 'center',
           justifyContent: 'center',
           p: 2,
-          minHeight: 'calc(100vh - 200px)',
+          //minHeight: 'calc(100vh - 200px)',
         }}
       >
         <Box

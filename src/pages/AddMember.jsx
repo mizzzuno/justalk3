@@ -114,7 +114,7 @@ const AddMember = () => {
             textTransform: "none",
           }}
         >
-          メンバーを追加
+          追加して選択画面へ
         </Button>
       </Stack>
     </Box>
