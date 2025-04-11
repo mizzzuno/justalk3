@@ -17,9 +17,11 @@ const AppContent = () => {
   return (
     <div className="main-container">
       <BorderContainer>
-        <Typography variant="h6">
+        <Typography variant="h6" style={{ textAlign: 'center' }}>
           <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-          <AppRoutes />
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+            <AppRoutes />
+          </div>
         </Typography>
       </BorderContainer>
     </div>
