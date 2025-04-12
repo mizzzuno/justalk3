@@ -60,7 +60,6 @@ function TranscriptionErrorUI() {
         <Box
           sx={{
             width: '100%',
-            maxWidth: '500px',
             p: 3,
             display: 'flex',
             flexDirection: 'column',

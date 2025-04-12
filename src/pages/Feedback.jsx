@@ -12,7 +12,7 @@ const Feedback = () => {
   ];
 
   return (
-    <Box sx={{ p: 1, maxWidth: 500, margin: '0 auto' }}>
+    <Box sx={{ width: '100%', p: 1 }}>
       <Paper elevation={3} sx={{ p: 1.5, mt: 1.5, bgcolor: 'transparent', borderRadius: 2 }}>
         <Grid container spacing={1}>
           {feedbackItems.map((item, index) => (
