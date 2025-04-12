@@ -11,7 +11,7 @@ import './../stylesheet/Menu.css';
 
 export default function IconMenu({ onClose }) {
   return (
-    <div className="menu-container">
+    <div className="menu-container open">
       <div className="menu-content">
         <Link to="/" className="menu-item" onClick={onClose}>
           <HomeIcon style={{ marginRight: '10px' }} />
