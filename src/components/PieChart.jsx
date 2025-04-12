@@ -11,7 +11,8 @@ export default function BasicPie() {
       flexDirection: 'column',
       width: '100%',
       margin: '0 auto',
-      padding: '20px'
+      padding: '20px',
+      boxSizing: 'border-box'
     }}>
       <PieChart
         series={[
@@ -32,7 +33,7 @@ export default function BasicPie() {
             ),
           },
         ]}
-        width={400}
+        width={300}
         height={300}
         slotProps={{
           legend: {
