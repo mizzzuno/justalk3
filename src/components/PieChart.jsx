@@ -4,16 +4,18 @@ import "./../stylesheet/Body.css";
 
 export default function BasicPie() {
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      flexDirection: 'column',
-      width: '100%',
-      margin: '0 auto',
-      padding: '20px',
-      boxSizing: 'border-box'
-    }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        width: "100%",
+        margin: "0 auto",
+        padding: "0 20px",
+        boxSizing: "border-box",
+      }}
+    >
       <PieChart
         series={[
           {
@@ -37,11 +39,11 @@ export default function BasicPie() {
         height={300}
         slotProps={{
           legend: {
-            direction: 'row',
-            position: { vertical: 'bottom', horizontal: 'middle' },
+            direction: "row",
+            position: { vertical: "bottom", horizontal: "middle" },
             labelStyle: {
-              fill: 'white',
-              color: 'white',
+              fill: "white",
+              color: "white",
             },
             itemMarkWidth: 20,
             itemMarkHeight: 20,
