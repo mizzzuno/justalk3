@@ -16,7 +16,7 @@
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 20px;
   color: var(--text-color);
 }
@@ -164,8 +164,12 @@ h1 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .no-users {
@@ -174,4 +178,4 @@ h1 {
   background: white;
   border-radius: 4px;
   box-shadow: 0 1px 3px var(--shadow-color);
-} 
+}

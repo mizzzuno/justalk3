@@ -34,7 +34,16 @@ const Feedback = () => {
                   },
                 }}
               >
-                <Typography variant="body1" sx={{ color: "#ffffff" }}>
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#ffffff",
+                    fontSize: {
+                      xs: "0.8rem", // スマホ（600px未満）
+                      sm: "1rem", // タブレット以上
+                    },
+                  }}
+                >
                   {item.label}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>

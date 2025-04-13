@@ -10,7 +10,6 @@ import RecordingButton from "../components/RecordingButton";
 import BasicTextFields from "../components/TextField";
 import IconButtonSizes from "../components/AddMemberButton";
 
-
 const AddMember = () => {
   const navigate = useNavigate();
   const [members, setMembers] = useState([{ name: "" }]);
@@ -37,7 +36,7 @@ const AddMember = () => {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: "75%",
         margin: "auto",
         mt: 3,
         p: 2,
@@ -98,7 +97,10 @@ const AddMember = () => {
       </Box>
 
       {/* 操作ボタン */}
-      <Stack spacing={2} sx={{ width: "90%", maxWidth: 400, alignSelf: "flex-start"}}>
+      <Stack
+        spacing={2}
+        sx={{ width: "90%", maxWidth: 400, alignSelf: "flex-start" }}
+      >
         <Button
           variant="contained"
           startIcon={<PersonAddIcon />}
