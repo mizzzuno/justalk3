@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import GroupsIcon from "@mui/icons-material/Groups";
 import RecordingButton from "../components/RecordingButton";
 import BasicTextFields from "../components/TextField";
 import IconButtonSizes from "../components/AddMemberButton";
@@ -13,7 +12,6 @@ import IconButtonSizes from "../components/AddMemberButton";
 const AddMember = () => {
   const navigate = useNavigate();
   const [members, setMembers] = useState([{ name: "" }]);
-  let add_count = 0;
 
   const handleAddMember = () => {
     setMembers([...members, { name: "" }]); // 空のメンバー追加
