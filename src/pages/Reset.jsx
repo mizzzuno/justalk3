@@ -1,13 +1,8 @@
-import React, { useState } from 'react';
-import IconMenu from '../components/IconMenu';
+import { useState } from "react";
+import IconMenu from "../components/IconMenu";
 
 const Reset = () => {
-  const [selectedMembers, setSelectedMembers] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleSelectAll = () => {
-    // 全選択のロジックを実装
-  };
 
   const handleReset = () => {
     // リセット処理を実装
@@ -33,9 +28,7 @@ const Reset = () => {
 
         {isMenuOpen && <IconMenu onClose={toggleMenu} />}
 
-        <div id="memberCheckboxes">
-          {/* メンバーチェックボックスを表示 */}
-        </div>
+        <div id="memberCheckboxes">{/* メンバーチェックボックスを表示 */}</div>
 
         <div className="mt-8 flex justify-center">
           <button
